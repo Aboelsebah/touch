@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="levelBackground" fx:id="root" prefHeight="800.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="levels.LevelMenu">
+    <children>
+        <ScrollPane id="transparentBackground" fitToWidth="true" hbarPolicy="NEVER" layoutX="-2.0" layoutY="93.0" prefHeight="706.0" prefWidth="1202.0" stylesheets="@style.css" vbarPolicy="NEVER">
+            <content>
+                <AnchorPane id="transparentBackground" fx:id="anchorPaneScrollDisplay" minHeight="0.0" minWidth="0.0" prefWidth="1200.0" stylesheets="@style.css">
+                    <children>
+                        <GridPane fx:id="levelGrid" alignment="CENTER" prefHeight="226.0" prefWidth="1201.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="5.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="110.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="-Infinity" minHeight="210.0" prefHeight="210.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <Label alignment="CENTER" prefHeight="105.0" prefWidth="1200.0" text="Learning levels" textFill="WHITE">
+            <font>
+                <Font size="31.0" />
+            </font>
+        </Label>
+        <Button id="getStartedButton" fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="35.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="35.0" prefWidth="83.0" stylesheets="@style.css" text="Back" textAlignment="CENTER" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,3 @@
+this is an easy text, instead of the lorem one which is horrible to write
+and doesn't represent real world text, for more texts we should include a custom
+text where use is allowed to put his own text.

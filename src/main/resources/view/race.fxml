@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane focusTraversable="true" onKeyPressed="#keyPress" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="race.Race">
+  <children>
+
+        <ImageView>
+          <image>
+            <Image url="@img/Main-pic2.png" />
+          </image>
+        </ImageView>
+    <Pane id="mainGreyPopUp" layoutX="140.0" layoutY="182.0" prefHeight="463.0" prefWidth="926.0" stylesheets="@style.css" GridPane.columnIndex="1">
+         <children>
+          <Label fx:id="gameDesc" alignment="CENTER" layoutX="294.0" layoutY="127.0" prefHeight="105.0" prefWidth="369.0" text="In this game you should type as fast as you can and get so the highest heighscore. Attention you have only 3 lives!" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <font>
+              <Font name="Calibri" size="18.0" />
+            </font>
+          </Label>
+          <Label fx:id="gameTitle" alignment="CENTER" layoutX="294.0" layoutY="67.0" prefHeight="32.0" prefWidth="369.0" text="Type a letter to start" textAlignment="CENTER" textFill="WHITE">
+            <font>
+              <Font name="Calibri" size="32.0" />
+            </font>
+          </Label>
+          <TextField layoutX="763.0" layoutY="422.0" onKeyPressed="#keyPress" opacity="0.0" />
+          <Label fx:id="speedLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="143.0" prefHeight="32.0" prefWidth="427.0" text="Speed: " textFill="WHITE" visible="false">
+            <font>
+              <Font size="22.0" />
+            </font>
+          </Label>
+            <StackedAreaChart fx:id="areaChart" layoutX="238.0" layoutY="175.0" prefHeight="220.0" prefWidth="481.0" visible="false">
+              <xAxis>
+                <NumberAxis autoRanging="false" lowerBound="1.0" minorTickCount="10" side="BOTTOM" tickLabelGap="2.0" tickLength="1.0" upperBound="20.0" fx:id="xAxis" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="yAxis" autoRanging="false" side="LEFT" upperBound="180.0" />
+              </yAxis>
+            </StackedAreaChart>
+          <Label fx:id="playAgain" alignment="CENTER" contentDisplay="CENTER" layoutX="268.0" layoutY="395.0" prefHeight="39.0" prefWidth="446.0" text="Please type any key to play again!" textFill="WHITE" visible="false">
+            <font>
+              <Font size="22.0" />
+            </font>
+          </Label>
+         </children></Pane>
+
+    <Button id="getStartedButton" fx:id="backButton" focusTraversable="false" layoutX="61.0" layoutY="85.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="25.0" prefWidth="60.0" stylesheets="@style.css" text="Back" />
+    <Button id="getStartedButton" fx:id="pauseButton" disable="true" focusTraversable="false" layoutX="61.0" layoutY="46.0" mnemonicParsing="false" onAction="#pause" prefHeight="25.0" prefWidth="60.0" stylesheets="@style.css" text="Pause" />
+    <Label fx:id="textNew" layoutX="602.0" layoutY="350.0" prefHeight="32.0" prefWidth="369.0" text="er to start" textFill="WHITE" visible="false">
+      <font>
+        <Font name="Calibri" size="32.0" />
+      </font>
+    </Label>
+    <Label fx:id="textOld" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="213.0" layoutY="350.0" lineSpacing="164.0" prefHeight="32.0" prefWidth="387.0" text="Hit a lett" textAlignment="RIGHT" textFill="#449063" visible="false">
+      <font>
+        <Font name="Calibri" size="32.0" />
+      </font>
+    </Label>
+    <Line fx:id="textLine" endX="229.0" endY="355.0" layoutX="372.0" layoutY="33.0" startX="229.0" startY="322.0" stroke="WHITE" visible="false">
+      <effect>
+        <Glow level="0.81" />
+      </effect>
+    </Line>
+    <SVGPath fx:id="secondLife" content="M285.257,35.528c58.743,0.286,106.294,47.836,106.58,106.58c0,107.624-195.918,214.204-195.918,214.204S0,248.165,0,142.108c0-58.862,47.717-106.58,106.58-106.58l0,0c36.032-0.281,69.718,17.842,89.339,48.065C215.674,53.517,249.273,35.441,285.257,35.528zM285.257,35.528c58.743,0.286,106.294,47.836,106.58,106.58c0,107.624-195.918,214.204-195.918,214.204S0,248.165,0,142.108c0-58.862,47.717-106.58,106.58-106.58l0,0c36.032-0.281,69.718,17.842,89.339,48.065C215.674,53.517,249.273,35.441,285.257,35.528z" fill="#b91a1a" layoutX="875.0" layoutY="542.0" scaleX="0.1" scaleY="0.1" scaleZ="0.1" stroke="BLACK" />
+    <SVGPath fx:id="firstLife" content="M285.257,35.528c58.743,0.286,106.294,47.836,106.58,106.58c0,107.624-195.918,214.204-195.918,214.204S0,248.165,0,142.108c0-58.862,47.717-106.58,106.58-106.58l0,0c36.032-0.281,69.718,17.842,89.339,48.065C215.674,53.517,249.273,35.441,285.257,35.528zM285.257,35.528c58.743,0.286,106.294,47.836,106.58,106.58c0,107.624-195.918,214.204-195.918,214.204S0,248.165,0,142.108c0-58.862,47.717-106.58,106.58-106.58l0,0c36.032-0.281,69.718,17.842,89.339,48.065C215.674,53.517,249.273,35.441,285.257,35.528z" fill="#b91a1a" layoutX="821.0" layoutY="542.0" scaleX="0.1" scaleY="0.1" scaleZ="0.1" stroke="BLACK" />
+    <SVGPath fx:id="thirdLife" content="M285.257,35.528c58.743,0.286,106.294,47.836,106.58,106.58c0,107.624-195.918,214.204-195.918,214.204S0,248.165,0,142.108c0-58.862,47.717-106.58,106.58-106.58l0,0c36.032-0.281,69.718,17.842,89.339,48.065C215.674,53.517,249.273,35.441,285.257,35.528zM285.257,35.528c58.743,0.286,106.294,47.836,106.58,106.58c0,107.624-195.918,214.204-195.918,214.204S0,248.165,0,142.108c0-58.862,47.717-106.58,106.58-106.58l0,0c36.032-0.281,69.718,17.842,89.339,48.065C215.674,53.517,249.273,35.441,285.257,35.528z" fill="#b91a1a" layoutX="926.0" layoutY="542.0" scaleX="0.1" scaleY="0.1" scaleZ="0.2" stroke="BLACK" />
+    <Label fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="510.0" layoutY="228.0" prefHeight="90.0" prefWidth="181.0" text="TIMER" textAlignment="CENTER" textFill="WHITE" visible="false">
+      <font>
+        <Font size="50.0" />
+      </font>
+    </Label>
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1082.0" layoutY="45.0" prefHeight="25.0" prefWidth="60.0" text="Score " textAlignment="RIGHT" textFill="WHITE">
+      <font>
+        <Font size="18.0" />
+      </font>
+    </Label>
+    <Label fx:id="gameScore" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1089.0" layoutY="70.0" prefHeight="27.0" prefWidth="47.0" text="0" textFill="WHITE">
+      <font>
+        <Font size="18.0" />
+      </font>
+    </Label>
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="924.0" layoutY="45.0" prefHeight="27.0" prefWidth="103.0" text="Highscore" textAlignment="RIGHT" textFill="WHITE">
+      <font>
+        <Font size="18.0" />
+      </font>
+    </Label>
+    <Label fx:id="highscore" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="933.0" layoutY="70.0" prefHeight="27.0" prefWidth="90.0" text="0" textFill="WHITE">
+      <font>
+        <Font size="18.0" />
+      </font>
+    </Label>
+    <ProgressBar fx:id="progressBar" layoutX="516.0" layoutY="430.0" prefHeight="39.0" prefWidth="181.0" progress="0.0" visible="false" />
+  </children>
+</Pane>

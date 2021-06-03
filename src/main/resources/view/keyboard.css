@@ -1,0 +1,31 @@
+.button {
+    -fx-padding: 8 10 10 10;
+    -fx-background-insets: 0, 0 0 5 0, 0 0 3 0, 0 0 6 0;
+    -fx-background-radius: 6;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #a7a7a7 0%, #a9a9a9 100%),
+            #9d9d9d, /*Linning*/ #ffffff,
+            radial-gradient(center 50% 50%, radius 100%, #efefef, #dedede);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.button:armed {
+    -fx-padding: 12 10 10 10;
+    -fx-background-insets: 0 0 2 0 /*Shades*/, 0 0 1 0, 0 0 3 0, 0 0 5 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0), 4, 0, 0, 1);
+}
+
+.button:default {
+    -fx-padding: 8 10 10 10;
+    -fx-background-insets: 0, 0 0 5 0, 0 0 3 0, 0 0 6 0;
+    -fx-background-radius: 6;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #6bbde3 0%, #48b1e9 100%),
+            #69c3f3, /*Linning*/ #7fccf6,
+            radial-gradient(center 50% 50%, radius 100%, #77bfe5, #6ec8de);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}

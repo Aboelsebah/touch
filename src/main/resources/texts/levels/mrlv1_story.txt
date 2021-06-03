@@ -1,0 +1,10 @@
+#pictureWindow1
+The Police Department in New York receives a call by worried neighbours. Their neighbour John Fitzgerald has not been around for a week and the neighbours are certain that he did not go on a vacation.
+Moreover, mail is filling up his doorstep.
+#pictureWindow2
+Half an hour later two policemen arrive at Mr Fitzgerald's door. After ringing the bell and knocking extensively, they decide to open the door.
+The door uses a new security system which is based on the Initials of the owner F and J with spaces in a specific order.
+Now it is your turn to help them to crack the code!
+*START_GAME
+Place your index fingers on F and J and the thumbs on the space-bar as indicated in the picture.
+$mrlv1.txt

@@ -1,0 +1,211 @@
+/******************************************************************
+# MAIN SCREEN
+*******************************************************************/
+
+/*TODO when are the following 3 styles used?*/
+#removeButton {
+    -fx-background-color: transparent;
+}
+#removeButton:hover
+{
+    -fx-background-color: yellow;
+}
+#removeButton:pressed
+{
+    -fx-background-color: brown;
+}
+
+#main-background {
+    -fx-background-image: url("img/Main-pic2.png");
+}
+
+#mainButtons {
+    -fx-background-color: linear-gradient(#bd2c42, #4b141a);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-text-fill: #f0f4fd;
+    -fx-font-size: 32px;
+    -fx-max-width: 218px;
+    -fx-min-width: 218px;
+    -fx-max-height: 60px;
+    -fx-min-height: 60px;
+}
+
+#dropDownMenu {
+    -fx-background-color: linear-gradient(#bd2c42, #4b141a);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-font-size: 24px;
+    -fx-max-width: 218px;
+    -fx-min-width: 218px;
+    -fx-max-height: 45px;
+    -fx-min-height: 45px;
+}
+
+#dropDownMenu .list-cell {
+    -fx-text-fill: #f0f4fd;
+}
+
+.combo-box .combo-box-popup .list-view, .combo-box .combo-box-popup .list-cell {
+    -fx-background-color: #4b141a;
+    -fx-text-fill: white;
+}
+.combo-box .combo-box-popup .list-cell:hover {
+    -fx-text-fill: black;
+    -fx-background-color: #bd2c42;
+}
+
+#mainSmallButton {
+    -fx-background-color: linear-gradient(#bd2c42, #4b141a);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-text-fill: #f0f4fd;
+    -fx-font-size: 14px;
+}
+
+#textFieldMain {
+    -fx-background-color: white;
+    -fx-border-color: #4b141a;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 7px;
+}
+
+#mainGreyPopUp {
+    -fx-background-color: rgba(0,0,0, 0.8);
+    -fx-background-radius: 6px;
+}
+
+/******************************************************************
+# LEVEL MENU
+*******************************************************************/
+
+#levelLabels {
+    -fx-border-color: black;
+    -fx-background-color: rgba(13, 54, 71, .6);
+    -fx-text-fill: white;
+}
+
+#rowTitles {
+    -fx-text-fill: white;
+    -fx-font-size: 28;
+}
+
+#levelBackground {
+    -fx-background-image: url("img/levelBackgroundImg.jpg");
+}
+
+
+#getStartedButton {
+    -fx-background-color: linear-gradient(#bd2c42, #4b141a);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-text-fill: #f0f4fd;
+}
+
+#getStartedButtonLocked {
+    -fx-background-color: linear-gradient(#4c121b, #020001);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-text-fill: #7d7f84;
+}
+
+#transparentBackground {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+#locklocked {
+    -fx-background-image: url("img/lock-locked.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80px;
+}
+
+#lockunlocked {
+    -fx-background-image: url("img/unlocked-gradient.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80px;
+}
+/******************************************************************
+# LEVELs
+*******************************************************************/
+
+#commandLine {
+    -fx-background-color: black;
+    -fx-border-color: grey;
+    -fx-border-width: 5;
+}
+
+#pictureWindow1 {
+    -fx-background-color: transparent;
+    -fx-border-color: grey;
+    -fx-border-width: 5;
+    -fx-background-image: url("img/policeOffice_empty.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1200px;
+    -fx-background-position: center;
+}
+
+#pictureWindow2 {
+    -fx-background-color: transparent;
+    -fx-border-color: grey;
+    -fx-border-width: 5;
+    -fx-background-image: url("img/mail_doorstep_1.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1200px;
+    -fx-background-position: center;
+}
+
+#returnButton {
+    -fx-background-color: linear-gradient(#bd2c42, #4b141a);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-text-fill: #f0f4fd;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 83px;
+    -fx-translate-x: 71px;
+    -fx-translate-y: 35px;
+}
+
+#nextButton {
+    -fx-background-color: linear-gradient(#bd2c42, #4b141a);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-text-fill: #f0f4fd;
+}
+
+.button {
+    -fx-padding: 8 10 10 10;
+    -fx-background-insets: 0, 0 0 5 0, 0 0 3 0, 0 0 6 0;
+    -fx-background-radius: 6;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #a7a7a7 0%, #a9a9a9 100%),
+            #9d9d9d, /*Linning*/ #ffffff,
+            radial-gradient(center 50% 50%, radius 100%, #efefef, #dedede);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.button:armed {
+    -fx-padding: 12 10 10 10;
+    -fx-background-insets: 0 0 2 0 /*Shades*/, 0 0 1 0, 0 0 3 0, 0 0 5 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0), 4, 0, 0, 1);
+}
+
+.button:default {
+    -fx-padding: 8 10 10 10;
+    -fx-background-insets: 0, 0 0 5 0, 0 0 3 0, 0 0 6 0;
+    -fx-background-radius: 6;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #6bbde3 0%, #48b1e9 100%),
+            #69c3f3, /*Linning*/ #7fccf6,
+            radial-gradient(center 50% 50%, radius 100%, #77bfe5, #6ec8de);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}

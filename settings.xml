@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.8" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="users.User">
+    <void property="current">
+     <boolean>true</boolean>
+    </void>
+    <void property="name">
+     <string>Guest</string>
+    </void>
+    <void property="score">
+     <int>43</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="users.User">
+    <void property="name">
+     <string>Lukas</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
