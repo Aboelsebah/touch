@@ -1,5 +1,6 @@
 package levels;
 
+import TextRun.TextRun;
 import javafx.concurrent.Task;
 import javafx.geometry.Pos;
 import javafx.scene.input.KeyCode;
@@ -34,6 +35,7 @@ public class StoryLevel {
     private ReaderText t2;
     private int counter = 0;
     Keyboard keyboard = new Keyboard();
+    TextRun racer = new TextRun();
     private final ArrayList<Observer> observers = new ArrayList<>();
 
     @FXML
@@ -138,10 +140,11 @@ public class StoryLevel {
         t2 = new ReaderText("score1.txt");
         displayMenu("Type a letter to start");
         if(!gameTextDisplay.getChildren().contains(keyboard)) {
-          gameTextDisplay.getChildren().add(keyboard);
+          gameTextDisplay.getChildren().addAll(keyboard, racer);
           keyboard.setLayoutY(400);
           keyboard.setLayoutX(250);
           observers.add(keyboard);
+          observers.add(racer);
 
           gameTextDisplay.setOnKeyPressed(this::update);
           gameTextDisplay.setOnKeyReleased(this::update);
