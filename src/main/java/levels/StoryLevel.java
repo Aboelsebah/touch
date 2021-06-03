@@ -141,9 +141,6 @@ public class StoryLevel {
         displayMenu("Type a letter to start");
         if(!gameTextDisplay.getChildren().contains(keyboard)) {
           gameTextDisplay.getChildren().addAll(keyboard, racer);
-
-          racer.setLayoutX(250);
-          racer.setLayoutY(200);
           keyboard.setLayoutY(400);
           keyboard.setLayoutX(250);
           observers.add(keyboard);
