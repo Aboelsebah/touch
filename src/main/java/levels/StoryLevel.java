@@ -8,6 +8,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Line;
 import keyboard.Keyboard;
 import keyboard.Observer;
+import org.fxmisc.richtext.InlineCssTextField;
 import users.UsersList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -141,6 +142,9 @@ public class StoryLevel {
         displayMenu("Type a letter to start");
         if(!gameTextDisplay.getChildren().contains(keyboard)) {
           gameTextDisplay.getChildren().addAll(keyboard, racer);
+          racer.setLayoutX(300);
+          racer.setLayoutY(250);
+
           keyboard.setLayoutY(400);
           keyboard.setLayoutX(250);
           observers.add(keyboard);
@@ -159,6 +163,11 @@ public class StoryLevel {
             }
         };
         task.run();
+
+        var textField = (InlineCssTextField) racer.getTextField();
+        textField.requestFocus();
+        textField.moveTo(textField.getText().length());
+        textField.requestFollowCaret();
     }
     /**
      * displays the game layout and hide the menu
