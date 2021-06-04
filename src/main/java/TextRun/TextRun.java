@@ -7,6 +7,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.robot.Robot;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
@@ -47,19 +48,28 @@ public class TextRun extends GridPane implements Observer {
     return textField;
   }
   private void mistakeListener() {
-    textField.textProperty().addListener((observable, oldValue, newValue) -> {
-      if (textField.getText().length() > 0)
-        if (str.charAt(textField.getText().length() - 1) == textField.getText().charAt(textField.getText().length() - 1))
-          textField.setStyle(textField.getText().length() - 1, textField.getText().length(),
-              "-fx-fill: green");
-        else
-          textField.setStyle(textField.getText().length() - 1, textField.getText().length(),
-              "-fx-fill: red");
+    javafx.scene.robot.Robot robo = new Robot();
 
-      extraCaret.moveTo(textField.getText().length());
-//      textField.requestFollowCaret();
-    });
-  }
+    textField.textProperty().addListener( ( observable, oldValue, newValue ) ->
+    {
+      int length = textField.getLength();
+      int len0 = length - 1;
+
+      if ( length > 0 )
+      {
+        if ( str.charAt( len0 ) == textField.getText().charAt( len0 ) )
+        {
+          textField.setStyle( len0, length, "-fx-fill: green" );
+        }
+        else textField.setStyle( len0, length, "-fx-fill: red" );
+      }
+
+      if ( textField.getCaretPosition() == length )
+      {
+        robo.keyPress( KeyCode.END );
+        robo.keyRelease( KeyCode.END );
+      }
+    } );  }
 
   private void textFieldStyling() {
     textField.setOnKeyPressed(this::update);
@@ -83,6 +93,11 @@ public class TextRun extends GridPane implements Observer {
         historyRestore();
         return;
       }
+      else if ( event.getCode() == KeyCode.END )
+      {
+        return;
+      }
+
       history.add(label.getText());
       label.setText(label.getText().substring(1));
     }

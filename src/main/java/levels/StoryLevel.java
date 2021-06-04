@@ -165,7 +165,6 @@ public class StoryLevel {
         task.run();
       var textField = (InlineCssTextField) racer.getTextField();
       textField.requestFocus();
-      textField.displaceCaret(textField.getText().length());
       textField.moveTo(textField.getText().length());
       textField.requestFollowCaret();
     }
