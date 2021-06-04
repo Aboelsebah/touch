@@ -1,8 +1,7 @@
 package levels;
 
-import TextRun.TextRun;
+import textRun.TextRun;
 import javafx.concurrent.Task;
-import javafx.geometry.Pos;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Line;
@@ -25,7 +24,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import race.ReaderText;
-import keyboard.Keyboard;
 
 public class StoryLevel {
     final String FXML_LEVEL_MENU = "../view/levelMenu.fxml";
@@ -124,7 +122,7 @@ public class StoryLevel {
         startGameButton.setVisible(false);
         executeGame();
 
-        if(won == true){
+        if(won){
             unlockNextLevel();
         }
         else{
@@ -165,7 +163,6 @@ public class StoryLevel {
         task.run();
       var textField = (InlineCssTextField) racer.getTextField();
       textField.requestFocus();
-      textField.displaceCaret(textField.getText().length());
       textField.moveTo(textField.getText().length());
       textField.requestFollowCaret();
     }

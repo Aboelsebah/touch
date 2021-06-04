@@ -1,4 +1,4 @@
-package TextRun;
+package textRun;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;

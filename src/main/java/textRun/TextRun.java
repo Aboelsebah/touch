@@ -1,4 +1,4 @@
-package TextRun;
+package textRun;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
