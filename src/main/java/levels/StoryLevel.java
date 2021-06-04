@@ -142,7 +142,7 @@ public class StoryLevel {
         displayMenu("Type a letter to start");
         if(!gameTextDisplay.getChildren().contains(keyboard)) {
           gameTextDisplay.getChildren().addAll(keyboard, racer);
-          racer.setLayoutX(300);
+          racer.setLayoutX(410);
           racer.setLayoutY(250);
 
           keyboard.setLayoutY(400);
@@ -163,11 +163,11 @@ public class StoryLevel {
             }
         };
         task.run();
-
-        var textField = (InlineCssTextField) racer.getTextField();
-        textField.requestFocus();
-        textField.moveTo(textField.getText().length());
-        textField.requestFollowCaret();
+      var textField = (InlineCssTextField) racer.getTextField();
+      textField.requestFocus();
+      textField.displaceCaret(textField.getText().length());
+      textField.moveTo(textField.getText().length());
+      textField.requestFollowCaret();
     }
     /**
      * displays the game layout and hide the menu

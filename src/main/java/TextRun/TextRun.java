@@ -22,6 +22,8 @@ public class TextRun extends GridPane implements Observer {
   Label label;
   String str = "this is it thank you for trying this out this is a very long text and this a difficult sequential word";
   InlineCssTextField textField = new InlineCssTextField();
+  CaretNode extraCaret = new CaretNode("another caret", textField);
+
 
   public TextRun() {
     label = new Label(str);
@@ -29,11 +31,16 @@ public class TextRun extends GridPane implements Observer {
     label.setTextFill(Color.WHITE);
     label.setFont(new Font(30));
     getChildren().addAll(textField);
-    getColumnConstraints().add(new ColumnConstraints(200));
+    getColumnConstraints().add(new ColumnConstraints(400));
     add(label, 1, 0);
 
     textFieldStyling();
     mistakeListener();
+
+    extraCaret.getStyleClass().remove("caret");
+    extraCaret.setStrokeWidth(4.0);
+    extraCaret.setStroke(Color.WHITE);
+    extraCaret.setBlinkRate(Duration.millis(500));
   }
 
   public InlineCssTextField getTextField() {
@@ -48,13 +55,16 @@ public class TextRun extends GridPane implements Observer {
         else
           textField.setStyle(textField.getText().length() - 1, textField.getText().length(),
               "-fx-fill: red");
+
+      extraCaret.moveTo(textField.getText().length());
+//      textField.requestFollowCaret();
     });
   }
 
   private void textFieldStyling() {
     textField.setOnKeyPressed(this::update);
     textField.setAlignment(TextAlignment.RIGHT);
-    textField.setMinWidth(210);
+    textField.setMinWidth(410);
     textField.setStyle(
         "-fx-faint-focus-color: transparent;" + "-fx-focus-color: transparent;" +
             "-fx-background-insets: 0;" + "-fx-padding: 5;" + "-fx-fill: white;" +
