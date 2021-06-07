@@ -7,7 +7,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.robot.Robot;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
@@ -15,8 +14,11 @@ import keyboard.Observer;
 import org.fxmisc.richtext.CaretNode;
 import org.fxmisc.richtext.InlineCssTextField;
 
+import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Objects;
+
 public class TextRun extends GridPane implements Observer {
   Deque<String> history = new ArrayDeque<>();
 
@@ -47,29 +49,32 @@ public class TextRun extends GridPane implements Observer {
   public InlineCssTextField getTextField() {
     return textField;
   }
-  private void mistakeListener() {
-    javafx.scene.robot.Robot robo = new Robot();
 
-    textField.textProperty().addListener( ( observable, oldValue, newValue ) ->
+  private void mistakeListener() {
+
+    textField.textProperty().addListener((observable, oldValue, newValue) ->
     {
       int length = textField.getLength();
       int len0 = length - 1;
 
-      if ( length > 0 )
-      {
-        if ( str.charAt( len0 ) == textField.getText().charAt( len0 ) )
-        {
-          textField.setStyle( len0, length, "-fx-fill: green" );
-        }
-        else textField.setStyle( len0, length, "-fx-fill: red" );
+      if (length > 0) {
+        if (str.charAt(len0) == textField.getText().charAt(len0)) {
+          textField.setStyle(len0, length, "-fx-fill: green");
+        } else textField.setStyle(len0, length, "-fx-fill: red");
       }
-
-      if ( textField.getCaretPosition() == length )
-      {
-        robo.keyPress( KeyCode.END );
-        robo.keyRelease( KeyCode.END );
+      Robot robot = null;
+      try {
+        robot = new Robot();
+      } catch (AWTException e) {
+        e.printStackTrace();
       }
-    } );  }
+      Objects.requireNonNull(robot).setAutoDelay(10);
+      if (textField.getLength() == textField.getCaretPosition()) {
+        robot.keyPress(java.awt.event.KeyEvent.VK_END);
+        robot.keyRelease(java.awt.event.KeyEvent.VK_END);
+      }
+    });
+  }
 
   private void textFieldStyling() {
     textField.setOnKeyPressed(this::update);
@@ -92,9 +97,7 @@ public class TextRun extends GridPane implements Observer {
       if (event.getCode() == KeyCode.BACK_SPACE) {
         historyRestore();
         return;
-      }
-      else if ( event.getCode() == KeyCode.END )
-      {
+      } else if (event.getCode() == KeyCode.END) {
         return;
       }
 
